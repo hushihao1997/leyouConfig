@@ -1,0 +1,36 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/leyou?characterEncoding=UTF8&serverTimezone=UTC
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    lease-renewal-interval-in-seconds: 5 #修改心跳为5s
+    lease-expiration-duration-in-seconds: 5 #修改过期时间
+mybatis:
+  type-aliases-package: com.leyou.item.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mappers/**/*.xml
+#logging:
+#  level:
+#    com.leyou: debug
+#ribbon:
+#  eureka:
+#    enabled: false
+#  #请求处理的超时时间
+#  ReadTimeout: 1200000000
+#  #请求连接的超时时间
+#  ConnectTimeout: 3000000
